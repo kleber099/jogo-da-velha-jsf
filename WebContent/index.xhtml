@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title><h:outputText value="Jogo da Velha" /></title>
+</h:head>
+<h:body>
+	<h:form id="novo">
+		<h:outputText value="Nome dos jogadores" />
+		<h:panelGrid columns="2">
+			<h:outputLabel value="O" for="idJogador1" />
+			<h:inputText id="idJogador1" value="#{jogoVelhaBean.jogador1.nome}" />
+
+			<h:outputLabel value="X" for="idJogador2" />
+			<h:inputText id="idJogador2" value="#{jogoVelhaBean.jogador2.nome}" />
+
+			<h:commandButton value="Novo Jogo" disabled="#{jogoVelhaBean.jogadorAtual != null}">
+				<f:ajax listener="#{jogoVelhaBean.iniciar}" execute="@form"
+					render="saidaJogador jogo @this" />
+			</h:commandButton>
+		</h:panelGrid>
+	</h:form>
+
+	<h:outputText id="saidaJogador" value="#{jogoVelhaBean.saida}" />
+	<h:panelGrid id="jogo" columns="3">
+		<h:commandButton linha="0" coluna="0" value="_"
+			disabled="#{jogoVelhaBean.jogadorAtual == null}">
+			<f:ajax listener="#{jogoVelhaBean.jogar}" event="click"
+				execute="@this" render="jogo saidaJogador" />
+		</h:commandButton>
+		<h:commandButton linha="0" coluna="1" value="_"
+			disabled="#{jogoVelhaBean.jogadorAtual == null}">
+			<f:ajax listener="#{jogoVelhaBean.jogar}" event="click"
+				execute="@this" render="jogo saidaJogador" />
+		</h:commandButton>
+		<h:commandButton linha="0" coluna="2" value="_"
+			disabled="#{jogoVelhaBean.jogadorAtual == null}">
+			<f:ajax listener="#{jogoVelhaBean.jogar}" event="click"
+				execute="@this" render="jogo saidaJogador" />
+		</h:commandButton>
+
+		<h:commandButton linha="1" coluna="0" value="_"
+			disabled="#{jogoVelhaBean.jogadorAtual == null}">
+			<f:ajax listener="#{jogoVelhaBean.jogar}" event="click"
+				execute="@this" render="jogo saidaJogador" />
+		</h:commandButton>
+		<h:commandButton linha="1" coluna="1" value="_"
+			disabled="#{jogoVelhaBean.jogadorAtual == null}">
+			<f:ajax listener="#{jogoVelhaBean.jogar}" event="click"
+				execute="@this" render="jogo saidaJogador" />
+		</h:commandButton>
+		
+		<h:commandButton linha="1" coluna="2" value="_"
+			disabled="#{jogoVelhaBean.jogadorAtual == null}">
+			<f:ajax listener="#{jogoVelhaBean.jogar}" event="click"
+				execute="@this" render="jogo saidaJogador" />
+		</h:commandButton>
+
+		<h:commandButton linha="2" coluna="0" value="_"
+			disabled="#{jogoVelhaBean.jogadorAtual == null}">
+			<f:ajax listener="#{jogoVelhaBean.jogar}" event="click"
+				execute="@this" render="jogo saidaJogador" />
+		</h:commandButton>
+		<h:commandButton linha="2" coluna="1" value="_"
+			disabled="#{jogoVelhaBean.jogadorAtual == null}">
+			<f:ajax listener="#{jogoVelhaBean.jogar}" event="click"
+				execute="@this" render="jogo saidaJogador" />
+		</h:commandButton>
+		<h:commandButton linha="2" coluna="2" value="_"
+			disabled="#{jogoVelhaBean.jogadorAtual == null}">
+			<f:ajax listener="#{jogoVelhaBean.jogar}" event="click"
+				execute="@this" render="jogo saidaJogador" />
+		</h:commandButton>
+	</h:panelGrid>
+</h:body>
+</html>
